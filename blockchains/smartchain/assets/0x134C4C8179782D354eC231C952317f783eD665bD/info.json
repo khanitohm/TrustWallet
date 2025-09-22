@@ -1,0 +1,25 @@
+{
+  "name": "USDT.z",
+  "type": "BEP20", 
+  "symbol": "USDTz",
+  "decimals": 18,
+  "website": "https://khanitohm.github.io/TrustWallet/",
+  "description": "GODTIER USDT.z Token - 9,000,000 Supply with Full Trust Wallet Integration",
+  "explorer": "https://bscscan.com/token/0x134C4C8179782D354eC231C952317f783eD665bD",
+  "status": "active",
+  "id": "0x134C4C8179782D354eC231C952317f783eD665bD",
+  "links": [
+    {
+      "name": "github",
+      "url": "https://github.com/khanitohm/TrustWallet"
+    },
+    {
+      "name": "coinmarketcap", 
+      "url": "https://khanitohm.github.io/TrustWallet/"
+    }
+  ],
+  "tags": [
+    "defi",
+    "stablecoin"
+  ]
+}
