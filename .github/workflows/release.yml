@@ -1,0 +1,26 @@
+name: Release USDTz
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - run: npm run deploy
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          BSCSCAN_KEY: ${{ secrets.BSCSCAN_KEY }}
+      - run: npm run airdrop
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          TOKEN_ADDR: ${{ steps.deploy.outputs.addr }}
+
+      - id: deploy
+        run: echo "addr=$(cat artifacts/USDTz.address)" >> $GITHUB_OUTPUT

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>เพิ่มโทเคน USDT.z ใน Trust Wallet</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            margin: 24px;
+        }
+
+        .card {
+            max-width: 720px;
+            margin: auto;
+            padding: 24px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            object-fit: contain;
+            background: #fff
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0b8fff;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        .muted {
+            color: #6b7280;
+            font-size: 14px
+        }
+
+        .qr {
+            margin-top: 16px
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 6px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="row">
+            <img id="logo" class="logo" alt="USDTz" />
+            <div>
+                <h2 style="margin:0">USDT.z (USDTz)</h2>
+                <div class="muted">เครือข่าย: BNB Smart Chain (chainId 56)</div>
+                <div class="muted">สัญญา: <code>0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef</code></div>
+            </div>
+        </div>
+
+        <p>กดปุ่มด้านล่างบนมือถือที่ติดตั้ง Trust Wallet เพื่อเพิ่มโทเคนอัตโนมัติ</p>
+        <p><a id="addBtn" class="btn" href="#">เพิ่มโทเคนใน Trust Wallet</a></p>
+
+        <div class="qr">
+            <div class="muted">หรือ สแกน QR ด้วยกล้อง/แอปรองรับ</div>
+            <img id="qr" alt="QR to add token" width="280" height="280" />
+        </div>
+
+        <details style="margin-top:16px">
+            <summary><b>เพิ่มโทเคนแบบกำหนดเองด้วยตัวเอง (สำรอง)</b></summary>
+            <ol>
+                <li>เปิด Trust Wallet > Tokens > + (Add Tokens)</li>
+                <li>เลือกเครือข่าย: <b>BNB Smart Chain</b></li>
+                <li>กรอกสัญญา: <code>0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef</code></li>
+                <li>Name: <b>USDT.z</b>, Symbol: <b>USDTz</b>, Decimals: <b>18</b></li>
+                <li>กด Save</li>
+            </ol>
+        </details>
+    </div>
+
+    <script>
+        (function () {
+            const addr = '0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef';
+            const params = new URLSearchParams({
+                chainId: '56',
+                tokenAddress: addr,
+                symbol: 'USDTz',
+                name: 'USDT.z',
+                decimals: '18',
+                logoURI: 'https://raw.githubusercontent.com/khanitohm/assets/master/blockchains/smartchain/assets/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef/logo.png'
+            });
+            const deeplink = 'https://link.trustwallet.com/add_token?' + params.toString();
+
+            document.getElementById('addBtn').href = deeplink;
+            document.getElementById('logo').src = 'https://raw.githubusercontent.com/khanitohm/assets/master/blockchains/smartchain/assets/' + addr + '/logo.png';
+
+            // Generate QR via image API (no JS lib needed)
+            const encoded = encodeURIComponent(deeplink);
+            document.getElementById('qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=' + encoded;
+        })();
+    </script>
+</body>
+
+</html>
