@@ -11,14 +11,20 @@ module.exports = {
     },
     networks: {
         bsc: {
-            url: process.env.RPC_URL || "https://bsc-dataseed.binance.org",
+            url: process.env.RPC_URL || "https://bsc-dataseed1.binance.org/",
             accounts: [key],
-            chainId: 56
+            chainId: 56,
+            gasPrice: 3000000000, // 3 gwei
+            gasLimit: 8000000,
+            timeout: 120000
         },
         bscTestnet: {
             url: "https://data-seed-prebsc-1-s1.binance.org:8545",
             accounts: [key],
-            chainId: 97
+            chainId: 97,
+            gasPrice: 10000000000, // 10 gwei
+            gas: 8000000,
+            timeout: 120000
         }
     },
     etherscan: {

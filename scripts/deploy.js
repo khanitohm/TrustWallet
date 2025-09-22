@@ -11,7 +11,7 @@ async function main() {
         "USDT.z",   // name
         "USDTz",    // symbol
         18,         // decimals
-        1_000_000   // initialSupply (full token)
+        9_000_000   // initialSupply (9M tokens)
     );
     await token.waitForDeployment();
     const addr = await token.getAddress();

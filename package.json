@@ -20,7 +20,14 @@
         "auto-pricing": "hardhat run scripts/auto-pricing.js --network bsc",
         "monitor": "node scripts/monitor.js",
         "analytics": "node scripts/analytics.js",
-        "godtier-full": "npm run auto-liquidity && npm run auto-pricing && npm run airdrop && npm run monitor"
+        "godtier-full": "npm run auto-liquidity && npm run auto-pricing && npm run airdrop && npm run monitor",
+        "deploy-new-token": "hardhat run scripts/deploy-new-token.js --network bsc",
+        "deploy-new-token-test": "hardhat run scripts/deploy-new-token.js --network bscTestnet",
+        "create-trust-assets": "node scripts/create-trust-assets.js",
+        "godtier-create-token": "npm run deploy-new-token && npm run create-trust-assets",
+        "check-wallet": "node -e \"const { ethers } = require('ethers'); const wallet = new ethers.Wallet(process.env.PRIVATE_KEY); console.log('Wallet:', wallet.address);\"",
+        "deploy-github": "git add . && git commit -m \"🚀 Deploy USDT.z assets\" && git push origin main",
+        "open-trust": "start https://link.trustwallet.com/add_asset?asset=c56_t0x134C4C8179782D354eC231C952317f783eD665bD"
     },
     "devDependencies": {
         "@nomicfoundation/hardhat-toolbox": "^4",
