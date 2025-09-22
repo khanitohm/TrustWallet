@@ -4,25 +4,25 @@ require("dotenv").config();
 
 async function main() {
     console.log("🎨 GODTIER: Creating Trust Wallet Assets");
-    
+
     const TOKEN_ADDR = process.env.TOKEN_ADDR;
     const TOKEN_NAME = process.env.TOKEN_NAME || "USDT.z";
     const TOKEN_SYMBOL = process.env.TOKEN_SYMBOL || "USDTz";
     const TOKEN_DECIMALS = process.env.TOKEN_DECIMALS || "18";
     const LOGO_URL = process.env.LOGO_URL;
-    
+
     if (!TOKEN_ADDR) {
         console.log("❌ TOKEN_ADDR not found in .env");
         console.log("💡 Deploy contract first: npm run deploy-new-token");
         return;
     }
-    
+
     console.log("📊 Creating assets for:", TOKEN_ADDR);
-    
+
     // Create directory structure
     const assetsDir = `blockchains/smartchain/assets/${TOKEN_ADDR}`;
     fs.mkdirSync(assetsDir, { recursive: true });
-    
+
     // Create info.json
     const info = {
         name: TOKEN_NAME,
@@ -40,7 +40,7 @@ async function main() {
                 url: "https://github.com/khanitohm/TrustWallet"
             },
             {
-                name: "explorer", 
+                name: "explorer",
                 url: `https://bscscan.com/token/${TOKEN_ADDR}`
             },
             {
@@ -58,10 +58,10 @@ async function main() {
             "defi"
         ]
     };
-    
+
     fs.writeFileSync(path.join(assetsDir, 'info.json'), JSON.stringify(info, null, 2));
     console.log("✅ info.json created");
-    
+
     // Create/copy logo.png (placeholder if not exists)
     const logoPath = path.join(assetsDir, 'logo.png');
     if (fs.existsSync('logo.png')) {
@@ -70,7 +70,7 @@ async function main() {
     } else {
         console.log("⚠️ logo.png not found, please add 256x256 PNG logo");
     }
-    
+
     // Update trust-token-list.json
     const tokenList = {
         name: `${TOKEN_SYMBOL} Custom List`,
@@ -95,10 +95,10 @@ async function main() {
             }
         ]
     };
-    
+
     fs.writeFileSync('trust-token-list.json', JSON.stringify(tokenList, null, 2));
     console.log("✅ trust-token-list.json updated");
-    
+
     // Create add-token page
     const addTokenHTML = `<!DOCTYPE html>
 <html lang="th">
@@ -126,7 +126,7 @@ async function main() {
         <div class="logo">${TOKEN_SYMBOL}</div>
         <h1>เพิ่ม ${TOKEN_NAME}</h1>
         <p class="subtitle">ใน Trust Wallet ของคุณ</p>
-        
+
         <div class="info">
             <strong>📱 วิธีการเพิ่ม Token:</strong><br>
             1. เปิด Trust Wallet<br>
@@ -134,19 +134,19 @@ async function main() {
             3. ยืนยันการเพิ่ม Token<br>
             4. เสร็จสิ้น!
         </div>
-        
+
         <a href="https://link.trustwallet.com/add_asset?asset=c56_t${TOKEN_ADDR}" class="btn" onclick="trackClick('auto_add')">
             🚀 เพิ่ม Token อัตโนมัติ
         </a>
-        
+
         <a href="#" onclick="showQR()" class="btn secondary">
             📱 แสดง QR Code
         </a>
-        
+
         <div id="qr-container" class="qr-container" style="display:none;">
             <img id="qr-code" style="width: 200px; height: 200px; margin: 10px auto; display: block; background: white; padding: 10px; border-radius: 10px;">
         </div>
-        
+
         <div class="manual-info">
             <strong>🔧 เพิ่มแบบ Manual:</strong><br>
             <strong>Contract Address:</strong><br>
@@ -165,28 +165,28 @@ async function main() {
             qrCode.src = \`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=\${encodeURIComponent(deeplink)}\`;
             container.style.display = container.style.display === 'none' ? 'block' : 'none';
         }
-        
+
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 alert('คัดลอกแล้ว! 📋');
             });
         }
-        
+
         function trackClick(type) {
             console.log('Token add clicked:', type);
         }
     </script>
 </body>
 </html>`;
-    
+
     fs.writeFileSync(`add-${TOKEN_SYMBOL.toLowerCase()}.html`, addTokenHTML);
     console.log(`✅ add-${TOKEN_SYMBOL.toLowerCase()}.html created`);
-    
+
     console.log("🎯 Trust Wallet Assets Created Successfully!");
     console.log("📂 Assets location:", assetsDir);
     console.log("🌐 Add Token URL:", `https://khanitohm.github.io/TrustWallet/add-${TOKEN_SYMBOL.toLowerCase()}.html`);
     console.log("🔗 Token List:", "https://khanitohm.github.io/TrustWallet/trust-token-list.json");
-    
+
     console.log("\n🚀 Next Steps:");
     console.log("1. Add logo.png (256x256) to project root");
     console.log("2. npm run deploy-github-assets");
