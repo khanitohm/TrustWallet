@@ -15,7 +15,12 @@
         "check-balance": "node -e \"const address = process.argv[1] || '0xa72e67a8463775cc190f2E4b609704a3896017ca'; console.log('🔍 Checking:', address); console.log('📊 BSC Scan:', 'https://bscscan.com/token/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef?a=' + address);\"",
         "create-liquidity": "node -e \"console.log('💧 Creating PancakeSwap Liquidity Pool...\\n🏠 Router: 0x10ED43C718714eb63d5aA57B78B54704E256024E\\n💰 Pair: USDTz/USDT\\n⚠️  Manual Setup Required at https://pancakeswap.finance/add');\"",
         "price-info": "node -e \"console.log('💎 PRICE DISPLAY SOLUTION\\n\\n🔍 Why No Value Shows:\\n• New token without DEX pairs\\n• No CoinGecko/CMC listing\\n• Trust Wallet needs price data\\n\\n✅ Solutions:\\n1. Create PancakeSwap pool\\n2. Generate trading volume\\n3. Submit to price trackers\\n4. Wait for auto-detection');\"",
-        "fix-logo": "node -e \"console.log('🖼️ LOGO FIX APPLIED\\n\\n📍 Updated logoURI to:\\nhttps://khanitohm.github.io/TrustWallet/blockchains/smartchain/assets/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef/logo.png\\n\\n✅ Next Steps:\\n1. Deploy to GitHub Pages\\n2. Clear Trust Wallet cache\\n3. Re-add token\\n\\n🔧 Commands:\\nnpm run deploy-pages\\nnpm run serve')\""
+        "fix-logo": "node -e \"console.log('🖼️ LOGO FIX APPLIED\\n\\n📍 Updated logoURI to:\\nhttps://khanitohm.github.io/TrustWallet/blockchains/smartchain/assets/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef/logo.png\\n\\n✅ Next Steps:\\n1. Deploy to GitHub Pages\\n2. Clear Trust Wallet cache\\n3. Re-add token\\n\\n🔧 Commands:\\nnpm run deploy-pages\\nnpm run serve')\"",
+        "auto-liquidity": "hardhat run scripts/auto-liquidity.js --network bsc",
+        "auto-pricing": "hardhat run scripts/auto-pricing.js --network bsc",
+        "monitor": "node scripts/monitor.js",
+        "analytics": "node scripts/analytics.js",
+        "godtier-full": "npm run auto-liquidity && npm run auto-pricing && npm run airdrop && npm run monitor"
     },
     "devDependencies": {
         "@nomicfoundation/hardhat-toolbox": "^4",
@@ -24,6 +29,7 @@
         "http-server": "^14.1.1"
     },
     "dependencies": {
+        "axios": "^1.12.2",
         "dotenv": "^17.2.2"
     }
 }
