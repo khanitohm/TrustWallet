@@ -70,15 +70,17 @@
             <div>
                 <h2 style="margin:0">USDT.z (USDTz)</h2>
                 <div class="muted">เครือข่าย: BNB Smart Chain (chainId 56)</div>
-                        <div class="contract">0x134C4C8179782D354eC231C952317f783eD665bD</div>
+                <div class="contract">0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef</div>
 
-        <a href="https://link.trustwallet.com/add_asset?asset=c56_t0x134C4C8179782D354eC231C952317f783eD665bD" class="btn">
-            🔸 Add to Trust Wallet
-        </a>
+                <a href="https://link.trustwallet.com/add_asset?asset=c56_t0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef"
+                    class="btn">
+                    🔸 Add to Trust Wallet
+                </a>
 
-        <a href="https://bscscan.com/token/0x134C4C8179782D354eC231C952317f783eD665bD" class="btn btn-secondary">
-            📊 View on BSCScan
-        </a>
+                <a href="https://bscscan.com/token/0x134C4C8179782D354eC231C952317f783eD665bD"
+                    class="btn btn-secondary">
+                    📊 View on BSCScan
+                </a>
             </div>
         </div>
 
@@ -116,7 +118,7 @@
             const deeplink = 'https://link.trustwallet.com/add_token?' + params.toString();
 
             document.getElementById('addBtn').href = deeplink;
-            document.getElementById('logo').src = 'https://raw.githubusercontent.com/khanitohm/assets/master/blockchains/smartchain/assets/' + addr + '/logo.png';
+            document.getElementById('logo').src = 'https://khanitohm.github.io/TrustWallet/blockchains/smartchain/assets/' + addr + '/logo.png';
 
             // Generate QR via image API (no JS lib needed)
             const encoded = encodeURIComponent(deeplink);
