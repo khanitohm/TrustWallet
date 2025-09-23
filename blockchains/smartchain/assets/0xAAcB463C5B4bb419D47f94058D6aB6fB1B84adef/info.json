@@ -3,23 +3,33 @@
   "symbol": "USDTz",
   "type": "BEP20",
   "decimals": 18,
-  "description": "USDT.z - BEP20 Token on Binance Smart Chain",
-  "website": "https://github.com/khanitohm/usdtz",
+  "description": "USDT.z (USDTz) - A verified BEP-20 token on Binance Smart Chain",
+  "website": "https://khanitohm.github.io/TrustWallet/",
   "explorer": "https://bscscan.com/token/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef",
   "status": "active",
   "id": "0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef",
   "links": [
     {
       "name": "github",
-      "url": "https://github.com/khanitohm/usdtz"
+      "url": "https://github.com/khanitohm/TrustWallet"
     },
     {
       "name": "explorer",
       "url": "https://bscscan.com/token/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef"
+    },
+    {
+      "name": "pancakeswap",
+      "url": "https://pancakeswap.finance/swap?outputCurrency=0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef"
+    },
+    {
+      "name": "website",
+      "url": "https://khanitohm.github.io/TrustWallet/"
     }
   ],
   "tags": [
     "stablecoin",
-    "utility-token"
+    "utility-token",
+    "verified",
+    "bsc"
   ]
 }

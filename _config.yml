@@ -1,0 +1,12 @@
+title: USDTz Token
+description: Official BEP-20 token with Trust Wallet integration
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# CORS headers for token list
+include:
+  - trust-token-list.json
+  - minimal-token-list.json
+  - blockchains/

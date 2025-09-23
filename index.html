@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDTz Token - Trust Wallet Integration</title>
+    <meta name="description" content="USDTz Token - Official BEP-20 token with Trust Wallet integration">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; margin-bottom: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px; border-radius: 15px; }
+        .logo { width: 80px; height: 80px; margin: 0 auto 20px; display: block; border-radius: 50%; }
+        .card { background: white; padding: 30px; border-radius: 15px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .address { font-family: 'Monaco', 'Menlo', monospace; background: #f8f9fa; padding: 15px; border-radius: 8px; word-break: break-all; border-left: 4px solid #007bff; }
+        .steps { counter-reset: step-counter; }
+        .step { counter-increment: step-counter; margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; position: relative; padding-left: 50px; }
+        .step::before { content: counter(step-counter); position: absolute; left: 15px; top: 15px; background: #007bff; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; }
+        .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .link { background: #007bff; color: white; padding: 15px 20px; text-decoration: none; border-radius: 8px; text-align: center; transition: background 0.3s; }
+        .link:hover { background: #0056b3; }
+        .status { display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin: 15px 0; }
+        @media (max-width: 768px) { .links { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="blockchains/smartchain/assets/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef/logo.png" alt="USDTz Logo" class="logo" onerror="this.style.display='none'">
+            <h1>USDTz Token</h1>
+            <p>Official BEP-20 Token on Binance Smart Chain</p>
+            <span class="status">VERIFIED ✅</span>
+        </div>
+        
+        <div class="card">
+            <h2>📍 Contract Information</h2>
+            <p><strong>Contract Address:</strong></p>
+            <div class="address">0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef</div>
+            <br>
+            <p><strong>Network:</strong> Binance Smart Chain (BSC)</p>
+            <p><strong>Type:</strong> BEP-20 Token</p>
+            <p><strong>Status:</strong> <span class="status">Verified on BscScan ✅</span></p>
+        </div>
+        
+        <div class="card">
+            <h2>📱 How to Add to Trust Wallet</h2>
+            <div class="steps">
+                <div class="step">Open Trust Wallet app on your mobile device</div>
+                <div class="step">Tap the "+" button in the top right corner</div>
+                <div class="step">Select "Add Custom Token"</div>
+                <div class="step">Choose "Smart Chain" as the network</div>
+                <div class="step">Paste the contract address above</div>
+                <div class="step">Token details will auto-fill from blockchain</div>
+                <div class="step">Tap "Done" to add the token</div>
+            </div>
+            
+            <div class="warning">
+                <strong>💡 Note:</strong> The token will appear in your wallet immediately after adding. 
+                The logo will load from this GitHub Pages site automatically.
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🔗 Important Links</h2>
+            <div class="links">
+                <a href="https://bscscan.com/address/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef" class="link" target="_blank">View on BscScan</a>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef" class="link" target="_blank">Trade on PancakeSwap</a>
+                <a href="trust-token-list.json" class="link" target="_blank">Token List JSON</a>
+                <a href="blockchains/smartchain/assets/0xAAcB463C5B4bb419D47f94058D6aB6fB1B84adef/info.json" class="link" target="_blank">Token Metadata</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🛠️ For Developers</h2>
+            <p>This token is fully compatible with:</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Trust Wallet asset standards</li>
+                <li>Uniswap token list format</li>
+                <li>ERC-20/BEP-20 standards</li>
+                <li>PancakeSwap integration</li>
+            </ul>
+            
+            <p><strong>Token List URL:</strong></p>
+            <div class="address">https://khanitohm.github.io/TrustWallet/trust-token-list.json</div>
+        </div>
+    </div>
+</body>
+</html>
